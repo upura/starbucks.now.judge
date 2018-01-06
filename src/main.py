@@ -21,18 +21,21 @@ train_label = []
 for i, d in enumerate(train_img_dirs):
     # ./data/以下の各ディレクトリ内のファイル名取得
     files = os.listdir('./'+d)
-    for f in files:
-        # 画像読み込み
-        img = cv2.imread('./' + d + '/' + f)
-        # 1辺がIMG_SIZEの正方形にリサイズ
-        img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
-        # 1列にして
-        img = img.flatten().astype(np.float32)/255.0
-        train_image.append(img)
-        # one_hot_vectorを作りラベルとして追加
-        tmp = np.zeros(NUM_CLASSES)
-        tmp[i] = 1
-        train_label.append(tmp)
+    try:
+        for f in files:
+            # 画像読み込み
+            img = cv2.imread('./' + d + '/' + f)
+            # 1辺がIMG_SIZEの正方形にリサイズ
+            img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+            # 1列にして
+            img = img.flatten().astype(np.float32)/255.0
+            train_image.append(img)
+            # one_hot_vectorを作りラベルとして追加
+            tmp = np.zeros(NUM_CLASSES)
+            tmp[i] = 1
+            train_label.append(tmp)
+    except:
+        pass
 
 # numpy配列に変換
 train_image = np.asarray(train_image)
