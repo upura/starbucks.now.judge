@@ -11,7 +11,7 @@ COLOR_CHANNELS = 3 # RGB
 IMG_PIXELS = IMG_SIZE * IMG_SIZE * COLOR_CHANNELS # 画像のサイズ*RGB
 
 # 画像のあるディレクトリ
-train_img_dirs = ['img/sutabu', 'pics/notStabu']
+train_img_dirs = ['img/sutabu', 'pics/notSutabu']
 
 # 学習画像データ
 train_image = []
