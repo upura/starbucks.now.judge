@@ -5,13 +5,13 @@ import os
 import numpy as np
 import cv2
 
-NUM_CLASSES = 3 # 分類するクラス数
+NUM_CLASSES = 2 # 分類するクラス数
 IMG_SIZE = 28 # 画像の1辺の長さ
 COLOR_CHANNELS = 3 # RGB
 IMG_PIXELS = IMG_SIZE * IMG_SIZE * COLOR_CHANNELS # 画像のサイズ*RGB
 
 # 画像のあるディレクトリ
-train_img_dirs = ['pics/1st', 'pics/2nd', 'pics/others']
+train_img_dirs = ['img/sutabu', 'pics/notStabu']
 
 # 学習画像データ
 train_image = []
@@ -126,7 +126,7 @@ for i in range(STEPS):
 
 # ----------------------------- #
 # 検証画像のあるディレクトリ
-test_img_dirs = ['pics/test']
+test_img_dirs = ['img/test']
 
 # 検証画像データ
 test_image = []
