@@ -116,9 +116,12 @@ for i in range(STEPS):
         batch = BATCH_SIZE * j
         train_image_batch = []
         train_label_batch = []
-        for k in range(BATCH_SIZE):
-            train_image_batch.append(train_image[random_seq[batch + k]])
-            train_label_batch.append(train_label[random_seq[batch + k]])
+        try:
+            for k in range(BATCH_SIZE):
+                train_image_batch.append(train_image[random_seq[batch + k]])
+                train_label_batch.append(train_label[random_seq[batch + k]])
+        except:
+            pass
         train_step.run(feed_dict={x: train_image_batch, y_: train_label_batch, keep_prob: 0.5})
 
     # 毎ステップ、学習データに対する正答率を表示
